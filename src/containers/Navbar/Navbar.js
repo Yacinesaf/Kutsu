@@ -3,12 +3,16 @@ import './style.css'
 import { motion } from 'framer-motion'
 
 const variants = {
-  open: { height: '100vh' },
-  closed: { height: 64, transition: { damping: 200, delay: 0.4 }, overflow: 'hidden' }
+  open: { height: '100vh', backgroundColor: 'rgba(255, 154, 0, 1)', },
+  closed: { height: 64, backgroundColor: 'rgba(255, 255, 255, 1)', transition: { damping: 200, delay: 0.4 }, overflow: 'hidden' }
 }
 const sectionVariants = {
   open: { x: 0, opacity: 1, y: 100 },
   closed: { x: -20, opacity: 0, y: 100 },
+}
+const title = {
+  open: { color: 'white' },
+  closed: { color: 'black', transition: { delay: 0.4 } },
 }
 const sectionsVariants = {
   open: {
@@ -30,6 +34,8 @@ const sectionsVariants = {
 const navSections = ['Home', 'About', 'Contact', 'Sign up/Log in']
 
 function Navbar({ smDown }) {
+  const [cartCounter, setCartCounter] = useState(0)
+  const [menuIsClicked, setMenuIsClicked] = useState(false)
   const styles = {
     navText: {
       color: 'black',
@@ -63,8 +69,8 @@ function Navbar({ smDown }) {
       top: 0
     },
     cartCounterMobile: {
-      backgroundColor: 'black',
-      color: 'white',
+      backgroundColor: menuIsClicked ? 'white' : 'black',
+      color: menuIsClicked ? 'black' : 'white',
       padding: 5,
       borderRadius: '100%',
       height: 20,
@@ -78,8 +84,7 @@ function Navbar({ smDown }) {
       top: -5
     },
   }
-  const [cartCounter, setCartCounter] = useState(0)
-  const [menuIsClicked, setMenuIsClicked] = useState(false)
+
 
   return (
     <motion.div
@@ -91,14 +96,16 @@ function Navbar({ smDown }) {
       style={styles.navbar}>
       <div className="col-md-11 px-0" >
         <div className="row justify-content-between align-items-center mx-0">
-          <div style={styles.navTtitle}>
+          <motion.div
+            variants={title}
+            style={styles.navTtitle}>
             Kutsu
-          </div>
+          </motion.div>
           {smDown ?
-            <div style={{display : 'flex', alignItems : 'center', }}>
+            <div style={{ display: 'flex', alignItems: 'center', }}>
               <div style={{ paddingRight: 20, position: 'relative' }}>
                 <div style={styles.cartCounterMobile}>{cartCounter}</div>
-                <svg width="1.75em" height="1.75em" viewBox="0 0 16 16" className="bi bi-cart2" fill="black" xmlns="http://www.w3.org/2000/svg">
+                <svg width="1.75em" height="1.75em" viewBox="0 0 16 16" className="bi bi-cart2" fill={menuIsClicked ? 'white' : "black"} xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
                 </svg>
               </div>
@@ -148,7 +155,7 @@ function Navbar({ smDown }) {
                 className='py-3'
                 key={section}
                 variants={sectionVariants}
-                style={{ textDecoration: 'none', color: 'black', fontSize: '1.35rem', fontWeight: 600, textAlign: 'center' }}>
+                style={{ textDecoration: 'none', color: 'white', fontSize: '1.5rem', fontWeight: 600, textAlign: 'center' }}>
                 {section}
               </motion.div>
             ))

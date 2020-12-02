@@ -1,14 +1,4 @@
-.menu {
-  transform: translateY(-490px);
-  background-color: white;
-  transition: 0.4s ease-in-out;
-}
 
-.menuDropped {
-  transform: translateY(0px);
-  background-color: white;
-  transition: 0.4s ease-in-out;
-}
 
 button:focus {
   outline: 0;
@@ -30,7 +20,8 @@ button:focus {
 }
 
 .hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner::before, .hamburger.is-active .hamburger-inner::after {
-  background-color: black;
+  background-color: white;
+  transition: 0.4s;
 }
 
 .hamburger-box {
