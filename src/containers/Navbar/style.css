@@ -40,7 +40,7 @@ button:focus {
 .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
   width: 40px;
   height: 4px;
-  background-color: black;
+  background-color: #333;
   border-radius: 4px;
   position: absolute;
   transition-property: transform;

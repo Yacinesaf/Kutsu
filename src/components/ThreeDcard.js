@@ -4,18 +4,22 @@ import './ThreeDcard.css'
 
 function ThreeDcard({ shoeObj }) {
   return (
-    <div>
-      <Tilt options={{ max: 25, speed: 400 }}>
-        <div style={{ width: 400, height: 600, backgroundColor: 'black' }}></div>
-      </Tilt>
-    </div>
-
+    <Tilt className='box' style={{ backgroundColor: 'none', maxWidth: 300, display: 'flex', justifyContent: 'center' }} options={{ max: 25, speed: 400 }}>
+      <div className='name'>
+        {shoeObj.name}
+      </div>
+      <div className="circle" style={{ background: shoeObj.color }}>
+        <div style={{
+          backgroundImage: `url('${shoeObj.img}')`,
+          backgroundPosition: 'center',
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat'
+        }}
+          className='product' />
+      </div>
+      <div className="buy">Buy Now</div>
+    </Tilt>
   );
 }
-
-// VanillaTilt.init(document.querySelectorAll(".box"), {
-//   max: 25,
-//   speed: 400
-// })
 
 export default ThreeDcard;

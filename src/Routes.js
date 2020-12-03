@@ -33,8 +33,12 @@ function Routes(props) {
   return (
     <div style={{ backgroundColor: '#f6f5f5', minHeight: '100vh' }}>
       <Navbar smDown={smDown(window)} />
-      <div>
-        <ThreeDcard shoeObj={shoes[0]} />
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        {shoes.map((shoe, i) => (
+          <div className='col-4 p-3'>
+            <ThreeDcard key={i} shoeObj={shoe} />
+          </div>
+        ))}
       </div>
     </div>
   );

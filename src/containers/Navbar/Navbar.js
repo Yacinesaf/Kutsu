@@ -12,7 +12,7 @@ const sectionVariants = {
 }
 const title = {
   open: { color: 'white' },
-  closed: { color: 'black', transition: { delay: 0.4 } },
+  closed: { color: '#333', transition: { delay: 0.4 } },
 }
 const sectionsVariants = {
   open: {
@@ -38,13 +38,13 @@ function Navbar({ smDown }) {
   const [menuIsClicked, setMenuIsClicked] = useState(false)
   const styles = {
     navText: {
-      color: 'black',
+      color: '#333',
       fontSize: smDown ? 18 : 16,
       padding: '0px 10px'
 
     },
     navTtitle: {
-      color: 'black',
+      color: '#333',
       fontWeight: 900,
       fontSize: 32,
     },
@@ -54,7 +54,7 @@ function Navbar({ smDown }) {
       boxShadow: '0 3px 4px rgba(0,0,0,0.06), 0 3px 4px rgba(0,0,0,0.13)',
     },
     cartCounter: {
-      backgroundColor: 'black',
+      backgroundColor: '#333',
       color: 'white',
       padding: 5,
       borderRadius: '100%',
@@ -69,8 +69,8 @@ function Navbar({ smDown }) {
       top: 0
     },
     cartCounterMobile: {
-      backgroundColor: menuIsClicked ? 'white' : 'black',
-      color: menuIsClicked ? 'black' : 'white',
+      backgroundColor: menuIsClicked ? 'white' : '#333',
+      color: menuIsClicked ? '#333' : 'white',
       padding: 5,
       borderRadius: '100%',
       height: 20,
@@ -105,7 +105,7 @@ function Navbar({ smDown }) {
             <div style={{ display: 'flex', alignItems: 'center', }}>
               <div style={{ paddingRight: 20, position: 'relative' }}>
                 <div style={styles.cartCounterMobile}>{cartCounter}</div>
-                <svg width="1.75em" height="1.75em" viewBox="0 0 16 16" className="bi bi-cart2" fill={menuIsClicked ? 'white' : "black"} xmlns="http://www.w3.org/2000/svg">
+                <svg width="1.75em" height="1.75em" viewBox="0 0 16 16" className="bi bi-cart2" fill={menuIsClicked ? 'white' : "#333"} xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
                 </svg>
               </div>
@@ -137,7 +137,7 @@ function Navbar({ smDown }) {
             </div>
               <div style={{ paddingLeft: 20, paddingTop: 5, position: 'relative' }}>
                 <div style={styles.cartCounter}>{cartCounter}</div>
-                <svg width="1.75em" height="1.75em" viewBox="0 0 16 16" className="bi bi-cart2" fill="black" xmlns="http://www.w3.org/2000/svg">
+                <svg width="1.75em" height="1.75em" viewBox="0 0 16 16" className="bi bi-cart2" fill="#333" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
                 </svg>
               </div>
