@@ -1,6 +1,7 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import ThreeDcard from './components/ThreeDcard';
 import Navbar from './containers/Navbar/Navbar';
-
+import { shoes } from './app/myData'
 function useWindowSize() {
   const [windowWidth, setWindowWidth] = useState(undefined);
 
@@ -29,10 +30,12 @@ function Routes(props) {
       return false
     }
   }
-
   return (
-    <div style={{backgroundColor : '#f6f5f5', minHeight : '100vh'}}>
+    <div style={{ backgroundColor: '#f6f5f5', minHeight: '100vh' }}>
       <Navbar smDown={smDown(window)} />
+      <div>
+        <ThreeDcard shoeObj={shoes[0]} />
+      </div>
     </div>
   );
 }
