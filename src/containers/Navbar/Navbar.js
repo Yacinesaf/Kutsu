@@ -3,7 +3,7 @@ import './style.css'
 import { motion } from 'framer-motion'
 
 const variants = {
-  open: { height: '100vh', backgroundColor: 'rgba(255, 154, 0, 1)', },
+  open: { height: '100vh', backgroundColor: 'rgba(232, 69, 69, 1)' },
   closed: { height: 64, backgroundColor: 'rgba(255, 255, 255, 1)', transition: { damping: 200, delay: 0.4 }, overflow: 'hidden' }
 }
 const sectionVariants = {
@@ -51,7 +51,6 @@ function Navbar({ smDown }) {
     navbar: {
       padding: '8px 40px',
       backgroundColor: 'white',
-      boxShadow: '0 3px 4px rgba(0,0,0,0.06), 0 3px 4px rgba(0,0,0,0.13)',
     },
     cartCounter: {
       backgroundColor: '#333',
@@ -119,8 +118,6 @@ function Navbar({ smDown }) {
                 </span>
               </button>
             </div>
-
-
             :
             <div className='d-flex align-items-center'>
               <div style={styles.navText}>
@@ -144,7 +141,8 @@ function Navbar({ smDown }) {
             </div>
           }
         </div>
-        <motion.div initial='closed'
+        <motion.div
+          initial='closed'
           animate={menuIsClicked ? 'open' : 'closed'} variants={sectionsVariants}>
           {smDown && (
             navSections.map(section => (
