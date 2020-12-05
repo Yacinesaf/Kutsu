@@ -3,17 +3,20 @@ import Tilt from 'react-vanilla-tilt'
 import './ThreeDcard.css'
 import { motion } from 'framer-motion'
 
-const variants = {
-  initial: { opacity: 0, x: -40 },
-  animate: { opacity: 1, x: 0 , transition : {duration : 0.8}},
-}
 
 
-function ThreeDcard({ shoeObj }) {
+
+function ThreeDcard({ shoeObj, visibleCard, x }) {
+  const variants = {
+    initial: { opacity: 0, x: x },
+    animate: { opacity: 1, x: 0 , transition : {duration : 0.8}},
+  }
+
+  
   return (
     <motion.div variants={variants}
       initial='initial'
-      animate='animate'
+      animate={visibleCard ? 'animate' : 'initial'}
       style={{float : 'inherit'}}
     >
       <Tilt className='box' style={{ backgroundColor: 'none', maxWidth: 300, display: 'flex', justifyContent: 'center' }} options={{ max: 25, speed: 400 }}>
