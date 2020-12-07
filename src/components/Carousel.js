@@ -14,8 +14,8 @@ const variants = {
 function Carousel() {
   return (
     <AnimatePresence >
-      <motion.div variants={variants} transition={{ duration: 0.8 }} initial='initial' animate='animate' exit='exit' className='col-12 px-0'>
-        <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+      <motion.div className='container-fluid' variants={variants} transition={{ duration: 0.8 }} initial='initial' animate='animate' exit='exit' className='col-12 px-0'>
+        <div style={{overflowY: 'hidden !important'}} id="carousel" className="carousel slide" data-ride="carousel">
           <div className='d-block d-md-none' style={{
             boxShadow: '0 3px 4px rgba(0,0,0,0.06), 0 3px 4px rgba(0,0,0,0.13)',
             color: 'white',

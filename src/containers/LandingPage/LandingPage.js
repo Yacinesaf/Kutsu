@@ -1,18 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Carousel from '../../components/Carousel';
 import ThreeDcard from '../../components/ThreeDcard';
+import Footer from '../../components/Footer';
 import { shoes } from '../../app/myData'
-import { motion } from 'framer-motion'
-
-const variants = {
-  initial: { opacity: 0, },
-  animate: { opacity: 1, transition: { duration: 0.8 } },
-}
-const child = {
-  initial: { opacity: 0, y: -40, transition: { duration: 0.7 } },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.7 } },
-}
-
 
 
 function LandingPage({ smDown }) {
@@ -45,7 +35,7 @@ function LandingPage({ smDown }) {
       {!smDown && (
         <div style={{ padding: '4rem', minHeight: '100vh' }}>
           <div style={{ color: '#333', fontSize: '3rem', fontWeight: 800, textAlign: 'center' }}>Trending Products</div>
-          <div className='row mx-0 justify-content-center align-items-center productsCrads' style={{ padding: '40px 0px' }}>
+          <div className='row mx-0 justify-content-center align-items-center productsCrads' style={{ padding: '60px 0px' }}>
             {shoes.map((shoe, i) => (
               <div key={i} className="col-6 col-xl-3 p-4">
                 <ThreeDcard shoeObj={shoe} visibleCard={visibleCard} />
@@ -54,6 +44,7 @@ function LandingPage({ smDown }) {
           </div>
         </div>
       )}
+      <Footer />
     </div >
   );
 }

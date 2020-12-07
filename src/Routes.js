@@ -6,13 +6,12 @@ function useWindowSize() {
   const [windowWidth, setWindowWidth] = useState(undefined);
 
   useEffect(() => {
-    window.scrollTo(0,0)
     function handleResize() {
       setWindowWidth(window.innerWidth);
     }
 
     window.addEventListener("resize", handleResize);
-
+    window.scrollTo(0, 0)
     handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
@@ -20,6 +19,7 @@ function useWindowSize() {
 
   return windowWidth;
 }
+
 
 
 function Routes(props) {
