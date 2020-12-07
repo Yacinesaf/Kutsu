@@ -26,7 +26,7 @@ function Carousel() {
             borderRadius: 25,
             position: 'absolute',
             right: 'calc(50% - (141.52px /2))',
-            top: 70,
+            bottom: 40,
             zIndex : 1,
           }}>
             Shop Now
@@ -39,7 +39,7 @@ function Carousel() {
                 backgroundSize: 'cover',
                 height: 'calc(100vh - 64px)',
               }} />
-              <div className="carousel-caption py-5">
+              <div className="carousel-caption py-md-5" style={{paddingBottom : '5rem'}}>
                 <h5 style={{ fontWeight: 600, textShadow: '2px 2px 2px rgba(23,10,6,0.3)' }}>Nike ProRun</h5>
                 <div style={{ letterSpacing: 1, textShadow: '2px 2px 2px rgba(23,10,6,0.3)' }}>Feel the comfort</div>
               </div>
@@ -51,7 +51,7 @@ function Carousel() {
                 backgroundSize: 'cover',
                 height: 'calc(100vh - 64px)',
               }} />
-              <div className="carousel-caption py-5">
+              <div className="carousel-caption py-md-5" style={{paddingBottom : '5rem'}}>
                 <h5 style={{ fontWeight: 600, textShadow: '2px 2px 2px rgba(23,10,6,0.3)' }}>Nike FREE</h5>
                 <div style={{ letterSpacing: 1, textShadow: '2px 2px 2px rgba(23,10,6,0.3)' }}>Feel the power</div>
               </div>
@@ -63,7 +63,7 @@ function Carousel() {
                 backgroundSize: 'cover',
                 height: 'calc(100vh - 64px)',
               }} />
-              <div className="carousel-caption py-5" >
+              <div className="carousel-caption py-md-5" style={{paddingBottom : '5rem'}} >
                 <h5 style={{ fontWeight: 600, textShadow: '2px 2px 2px rgba(23,10,6,0.3)' }}>Nike AirRun</h5>
                 <div style={{ letterSpacing: 1, textShadow: '2px 2px 2px rgba(23,10,6,0.3)' }}>Feel the lightness</div>
               </div>

@@ -51,6 +51,10 @@ function Navbar({ smDown }) {
     navbar: {
       padding: '8px 40px',
       backgroundColor: 'white',
+      postion: 'fixed',
+      width: '100%',
+      zIndex: 10,
+      boxShadow: '0 3px 4px rgba(0,0,0,0.06), 0 3px 4px rgba(0,0,0,0.13)'
     },
     cartCounter: {
       backgroundColor: '#333',
@@ -121,17 +125,17 @@ function Navbar({ smDown }) {
             :
             <div className='d-flex align-items-center'>
               <div style={styles.navText}>
-                About
-            </div>
-              <div style={styles.navText}>
                 Home
-            </div>
+              </div>
+              <div style={styles.navText}>
+                About
+              </div>
               <div style={styles.navText}>
                 Contact
-            </div>
+              </div>
               <div style={styles.navText}>
                 Login/Sign up
-            </div>
+              </div>
               <div style={{ paddingLeft: 20, paddingTop: 5, position: 'relative' }}>
                 <div style={styles.cartCounter}>{cartCounter}</div>
                 <svg width="1.75em" height="1.75em" viewBox="0 0 16 16" className="bi bi-cart2" fill="#333" xmlns="http://www.w3.org/2000/svg">

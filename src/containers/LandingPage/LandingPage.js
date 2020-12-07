@@ -22,9 +22,10 @@ function LandingPage({ smDown }) {
     const onScroll = e => {
       let currentScroll = e.target.documentElement.scrollTop
       const refDiv = document.querySelector('.productsCrads');
-      let topPos = refDiv.offsetTop - e.target.documentElement.clientHeight;
-      setVisibleCard(currentScroll >= topPos + 100)
-      console.log(visibleCard);
+      if(refDiv) {
+        let topPos = refDiv.offsetTop - e.target.documentElement.clientHeight;
+        setVisibleCard(currentScroll >= topPos + 100)
+      }
     };
     window.addEventListener("scroll", onScroll);
 
@@ -41,53 +42,18 @@ function LandingPage({ smDown }) {
           </svg>
         </div>
       </div>
-      <div style={{ padding: '4rem', minHeight: '100vh' }}>
-        <div className='d-none d-md-flex row mx-0 justify-content-center align-items-center' style={{ padding: '100px 0px' }}>
-          <div className="col-6 col-xl-5 px-0">
-            <ThreeDcard shoeObj={shoes[0]} visibleCard={visibleCard} x={-40}/>
-          </div>
-          <div className="col-6 col-xl-4 d-flex align-items-center p-0 productsCrads" style={{ position: 'relative' }}>
-            <motion.div style={{
-              color: '#333',
-              fontSize: '1.35rem',
-              fontWeight: 600,
-              zIndex: 2
-            }} variants={child} initial='initial' animate={visibleCard ? 'animate' : 'initial'} className='pl-4 pl-xl-0'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates eligendi ullam mollitia accusamus blanditiis at animi, sed qui fugit distinctio ut a exercitationem nesciunt illo iure commodi nisi odit corrupti.
-            </motion.div>
+      {!smDown && (
+        <div style={{ padding: '4rem', minHeight: '100vh' }}>
+          <div style={{ color: '#333', fontSize: '3rem', fontWeight: 800, textAlign: 'center' }}>Trending Products</div>
+          <div className='row mx-0 justify-content-center align-items-center productsCrads' style={{ padding: '40px 0px' }}>
+            {shoes.map((shoe, i) => (
+              <div key={i} className="col-6 col-xl-3 p-4">
+                <ThreeDcard shoeObj={shoe} visibleCard={visibleCard} />
+              </div>
+            ))}
           </div>
         </div>
-        <div className='d-none d-md-flex row mx-0 justify-content-center align-items-center' style={{ padding: '100px 0px' }}>
-          <div className="col-6 col-xl-4 d-flex align-items-center p-0" style={{ position: 'relative' }}>
-            <motion.div style={{
-              color: '#333',
-              fontSize: '1.35rem',
-              fontWeight: 600,
-              zIndex: 2
-            }} variants={child} initial='initial' animate='animate' className='pr-4 pr-xl-0'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates eligendi ullam mollitia accusamus blanditiis at animi, sed qui fugit distinctio ut a exercitationem nesciunt illo iure commodi nisi odit corrupti.
-            </motion.div>
-          </div>
-          <div className="col-6 col-xl-5 px-0" style={{ float: "right" }}>
-            <ThreeDcard shoeObj={shoes[1]} visibleCard={visibleCard} x={40} />
-          </div>
-        </div>
-        <div className='d-none d-md-flex row mx-0 justify-content-center align-items-center' style={{ padding: '100px 0px' }}>
-          <div className="col-6 col-xl-5 px-0">
-            <ThreeDcard shoeObj={shoes[2]} visibleCard={visibleCard} x={-40}/>
-          </div>
-          <div className="col-6 col-xl-4 d-flex align-items-center p-0" style={{ position: 'relative' }}>
-            <motion.div style={{
-              color: '#333',
-              fontSize: '1.35rem',
-              fontWeight: 600,
-              zIndex: 2
-            }} variants={child} initial='initial' animate='animate' className='pl-4 pl-xl-0'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates eligendi ullam mollitia accusamus blanditiis at animi, sed qui fugit distinctio ut a exercitationem nesciunt illo iure commodi nisi odit corrupti.
-          </motion.div>
-          </div>
-        </div>
-      </div>
+      )}
     </div >
   );
 }

@@ -7,15 +7,21 @@ export const shoes = [
   },
   {
     name: 'Dual Fusion',
-    img: 'https://firebasestorage.googleapis.com/v0/b/kutsu-62e8e.appspot.com/o/22-nike-running-shoes-png-image.png?alt=media&token=d2a688a0-c650-451c-91eb-25d48985311b',
-    price: 99.99,
-    color: '#61c3d6'
+    img: 'https://firebasestorage.googleapis.com/v0/b/kutsu-62e8e.appspot.com/o/PngItem_2409071.png?alt=media&token=bf559694-c152-43e2-8232-5c6edabb8275',
+    price: 169.99,
+    color: '#c80122'
   },
   {
     name: 'Nike Zoom',
-    img: 'https://firebasestorage.googleapis.com/v0/b/kutsu-62e8e.appspot.com/o/40-nike-running-shoes-png-image.png?alt=media&token=c6def95c-b147-41fe-88c2-d20ad27dd95d',
+    img: 'https://firebasestorage.googleapis.com/v0/b/kutsu-62e8e.appspot.com/o/PngItem_2409185.png?alt=media&token=0e687cf7-2b91-4a22-84b9-e38d8331248f',
     price: 119.99,
-    color: '#ea5508'
+    color: '#239593'
+  },
+  {
+    name: 'Nike METCON',
+    img: 'https://firebasestorage.googleapis.com/v0/b/kutsu-62e8e.appspot.com/o/PngItem_2441637.png?alt=media&token=e489ac50-6bc7-4d55-b5d2-bde6aa48acd9',
+    price: 199.99,
+    color: '#ffa62b'
   },
 
 ]
