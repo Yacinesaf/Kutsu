@@ -17,7 +17,6 @@
 
 .buy {
   position: absolute;
-  bottom: 40px;
   transform-style: preserve-3d;
   transform: translate3d(0, 0, 75px);
   color: #fff;

@@ -19,8 +19,9 @@ function ThreeDcard({ shoeObj, visibleCard }) {
 
   return (
     <motion.div
-      onHoverEnd={() => { setIsHovered(false) }}
-      whileHover={() => { setIsHovered(true) }} variants={variants}
+      onHoverStart={()=> {setIsHovered(true)}}
+      // onHoverEnd={() => { setIsHovered(false) }}
+      // whileHover={() => { setIsHovered(true) }} variants={variants}
       initial='initial'
       animate={visibleCard ? 'animate' : 'initial'}
     >
@@ -44,23 +45,32 @@ function ThreeDcard({ shoeObj, visibleCard }) {
           }}
             className='product' />
         </div>
-        <motion.div
-          variants={priceAndSizeVariants}
-          initial='initial'
-          animate={isHovered ? 'animate' : 'initial'}
-          style={{
-            textAlign : 'center',
-            position: 'absolute',
-            bottom: 85,
-            fontWeight: 600,
-            fontSize: 20
-          }}>
-          <div>{'$' + shoeObj.price}</div>
-        </motion.div>
-        <div className="buy ripple">Buy Now</div>
+        <div style={{
+          textAlign: 'center',
+          position: 'absolute',
+          bottom: 85,
+          fontWeight: 600,
+          fontSize: 20,
+        }}>{'$' + shoeObj.price}</div>
+        <div className="buy ripple" style={{ bottom: isHovered ? 40 : 25 }}>Buy Now</div>
       </Tilt>
     </motion.div>
   );
 }
+
+
+// <motion.div
+// variants={priceAndSizeVariants}
+// initial='initial'
+// animate={isHovered ? 'animate' : 'initial'}
+// style={{
+//   textAlign : 'center',
+//   position: 'absolute',
+//   bottom: 85,
+//   fontWeight: 600,
+//   fontSize: 20
+// }}>
+// <div>{'$' + shoeObj.price}</div>
+// </motion.div>
 
 export default ThreeDcard;
