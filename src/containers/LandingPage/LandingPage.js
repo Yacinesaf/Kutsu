@@ -44,7 +44,7 @@ function LandingPage({ smDown }) {
           </div>
         </div>
       )}
-      <Footer />
+      <Footer smDown={smDown} />
     </div >
   );
 }
