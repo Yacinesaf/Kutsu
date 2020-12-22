@@ -5,10 +5,14 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import store from './app/store'
 import Routes from './Routes';
+import { BrowserRouter } from 'react-router-dom';
+
 
 ReactDOM.render(
   <Provider store={store}>
-    <Routes />
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

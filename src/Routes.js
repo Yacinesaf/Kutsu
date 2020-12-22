@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import ThreeDcard from './components/ThreeDcard';
 import Navbar from './containers/Navbar/Navbar';
 import LandingPage from './containers/LandingPage/LandingPage';
+import ProductPage from './containers/ProductPage/ProductPage';
+import { Route } from 'react-router-dom'
+
 function useWindowSize() {
   const [windowWidth, setWindowWidth] = useState(undefined);
 
@@ -11,8 +13,8 @@ function useWindowSize() {
     }
 
     window.addEventListener("resize", handleResize);
-    window.scrollTo(0, 0)
     handleResize();
+
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -34,7 +36,9 @@ function Routes(props) {
   return (
     <div style={{ backgroundColor: '#f6f5f5', minHeight: '100vh' }}>
       <Navbar smDown={smDown(window)} />
-      <LandingPage smDown={smDown(window)} />
+      <Route exact path='/' render={(props) => <LandingPage {...props} smDown={smDown(window)} />} />
+      <Route exact path='/:shoeName' render={(props) => <ProductPage {...props} smDown={smDown(window)} />} />
+
     </div>
   );
 }

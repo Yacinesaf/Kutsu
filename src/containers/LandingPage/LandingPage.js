@@ -9,10 +9,13 @@ function LandingPage({ smDown }) {
   const [visibleCard, setVisibleCard] = useState(false)
 
   useEffect(() => {
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    }
     const onScroll = e => {
       let currentScroll = e.target.documentElement.scrollTop
       const refDiv = document.querySelector('.productsCrads');
-      if(refDiv) {
+      if (refDiv) {
         let topPos = refDiv.offsetTop - e.target.documentElement.clientHeight;
         setVisibleCard(currentScroll >= topPos + 100)
       }

@@ -2,26 +2,26 @@ import React, { useState } from 'react';
 import Tilt from 'react-vanilla-tilt'
 import './ThreeDcard.css'
 import { motion } from 'framer-motion'
-
+import { useHistory } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const variants = {
   initial: { opacity: 0, y: 40, transition: { duration: 0.8 } },
   animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 }
-const priceAndSizeVariants = {
-  initial: { opacity: 0, transition: { duration: 0.3 } },
-  animate: { opacity: 1, transition: { duration: 0.3 } },
-}
 
 
 function ThreeDcard({ shoeObj, visibleCard }) {
   const [isHovered, setIsHovered] = useState(false)
+  const history = useHistory()
+  const selectedData = useSelector(state => {
+    return state.globalData.selectedShoe
+  });
 
   return (
     <motion.div
-      onHoverStart={()=> {setIsHovered(true)}}
-      // onHoverEnd={() => { setIsHovered(false) }}
-      // whileHover={() => { setIsHovered(true) }} variants={variants}
+      onHoverStart={() => { setIsHovered(true) }}
+      variants={variants}
       initial='initial'
       animate={visibleCard ? 'animate' : 'initial'}
     >
@@ -52,25 +52,23 @@ function ThreeDcard({ shoeObj, visibleCard }) {
           fontWeight: 600,
           fontSize: 20,
         }}>{'$' + shoeObj.price}</div>
-        <div className="buy ripple" style={{ bottom: isHovered ? 40 : 25 }}>Buy Now</div>
+        <div onClick={() => { history.push(`/${shoeObj.name}`) }} className="buy ripple" style={{ bottom: isHovered ? 40 : 25 }}>Shop Now</div>
+        <div
+          style={{
+            textAlign: 'center',
+            position: 'absolute',
+            bottom: 85,
+            fontSize: 20,
+            color: 'black'
+          }}>
+          <div>{'$' + shoeObj.price}</div>
+        </div>
       </Tilt>
     </motion.div>
   );
 }
 
 
-// <motion.div
-// variants={priceAndSizeVariants}
-// initial='initial'
-// animate={isHovered ? 'animate' : 'initial'}
-// style={{
-//   textAlign : 'center',
-//   position: 'absolute',
-//   bottom: 85,
-//   fontWeight: 600,
-//   fontSize: 20
-// }}>
-// <div>{'$' + shoeObj.price}</div>
-// </motion.div>
+
 
 export default ThreeDcard;
